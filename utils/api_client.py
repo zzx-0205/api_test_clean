@@ -1,9 +1,11 @@
+#utils(工具层):可复用的”轮子“
+#封装 requests.Session,发送请求
 import requests
 from config.settings import BASE_URL, TIMEOUT
 
 class APIClient:
     def __init__(self):
-        self.session = requests.Session()
+        self.session = requests.Session()#连接复用+自动保持会话
         self.session.headers.update({"Content-Type": "application/json"})
 
     def _build_url(self, path):

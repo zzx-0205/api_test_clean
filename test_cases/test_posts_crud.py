@@ -1,9 +1,9 @@
 import pytest
-
+#@pytest.mark.parametrize：pytest 最强大的功能之一——参数化,用不同数据运行同一个测试函数
 class TestPostsCRUD:
     @pytest.mark.parametrize("post_id,expected_status", [
-        (1, 200),
-        (99999, 404)
+        (1, 200),#第一次，post_id=1,expected_status=200
+        (99999, 404)#第二次，post_id=99999,expected_status=404
     ])
     def test_get_post(self, api_client, post_id, expected_status):
         resp = api_client.get(f"/posts/{post_id}")
