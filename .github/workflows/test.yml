@@ -21,9 +21,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
-        working-directory: ./api_test_clean
+          pip install -r api_test_clean/requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 
       - name: Run tests
-        run: pytest -v test_cases/
-        working-directory: ./api_test_clean
+        run: pytest -v api_test_clean/test_cases/
